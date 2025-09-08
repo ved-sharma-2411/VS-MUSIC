@@ -1,4 +1,4 @@
-Copyright (c) 2025 [Your Name]
+Copyright (c) 2025 Ved Sharma
 
 This project, VS MUSIC, was created strictly for academic survival purposes.
 In other words: my college asked for a small PHP + MySQL project to award some internal marks, so here it is.

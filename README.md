@@ -2,6 +2,11 @@
 
 VS-MUSIC is a music streaming platform where users can browse, search, and manage music albums, songs, playlists, and artists. It also includes an admin panel for managing users, albums, songs, and artists.
 
+This project, VS MUSIC, was created strictly for academic survival purposes.
+In other words: my college asked for a small PHP + MySQL project to award some internal marks, so here it is.
+
+You are free to look, fork, or laugh at the code — but please understand this was never meant to be a production-ready masterpiece.
+
 ## Features
 
 ### User Features
@@ -39,7 +44,7 @@ search.php
 settings.php
 topRated.php
 updateDetails.php
-VG_MUSIC.sql
+VS_MUSIC.sql
 yourMusic.php
 admin/
     admin-login.php
@@ -87,7 +92,7 @@ The database includes tables for:
 
 2. Import the database:
 
-   - Open `VG_MUSIC.sql` in your database management tool (e.g., phpMyAdmin) and import it.
+   - Open `VS_MUSIC.sql` in your database management tool (e.g., phpMyAdmin) and import it.
 
 3. Configure the database connection:
 

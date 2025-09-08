@@ -173,10 +173,11 @@ include("Includes/includedFiles.php");
     <div class="about-content">
         <div class="container">
             <h1>Welcome to VS Music 🎶</h1>
-            <p>V&G Music isn’t just another project—it’s our <strong>passion in code</strong>, our <strong>beats in
-                    pixels</strong>, and our <strong>college dream turned reality</strong>. Built by <strong>Ved
-                    Sharma</strong> this is more than an assignment—it’s an
-                experience. 🚀</p>
+            <p>This project, VS MUSIC, was created strictly for academic survival purposes.<br><br>
+                In other words: my college asked for a small PHP + MySQL project to award some internal marks, so here
+                it is.<br><br>
+                You are free to look, fork, or laugh at the code — but please understand this was never meant to be a
+                production-ready masterpiece.</p>
 
             <!-- 🌟 Legendary Timeline -->
             <div class="timeline">
