@@ -1,15 +1,14 @@
-Copyright (c) 2025 Ved Sharma
+Copyright (c) 2025 [Your Name]
 
-All Rights Reserved.
+This project, VS MUSIC, was created strictly for academic survival purposes.
+In other words: my college asked for a small PHP + MySQL project to award some internal marks, so here it is.
 
-This source code and its contents are proprietary and confidential. It is provided solely for the purpose of internal development and collaboration on the School-Parents project.
+You are free to look, fork, or laugh at the code — but please understand this was never meant to be a production-ready masterpiece.
 
-No part of this codebase may be copied, modified, distributed, published, or used for any purpose other than what has been explicitly authorized by Ved Sharma.
+✅ Educational use: allowed
 
-Unauthorized use, reproduction, or distribution of this code, in whole or in part, is strictly prohibited and may result in legal action.
+✅ Learning / reference: encouraged
 
-THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+❌ Running this in production: do so at your own risk (you might run into big trouble - bugs, crashes, security issues, chaos
 
-This software is intended for use solely by authorized individuals or entities. Any attempt to reverse engineer, decompile, or disassemble the software is strictly prohibited.
-
-These terms shall be governed by and construed in accordance with the laws of Uttar Pradesh India. Any disputes arising under this license shall be subject to the exclusive jurisdiction of the courts located in India.
+Basically: enjoy responsibly, and remember this was written for grades, not glory. 🎓✨
