@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^([^.]+)$ $1.php [NC,L]
+
+Header set Connection keep-alive
+AddType text/cache-manifest .manifest

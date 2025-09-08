@@ -1,0 +1,145 @@
+/* style.css */
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.topRatedHeading {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.tracklistContainer {
+    padding: 20px;
+}
+
+.tracklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tracklistRow {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.tracklistRow:hover {
+    transform: scale(1.05);
+    background-color: #333;
+}
+
+.trackCount, .trackInfo, .trackOptions, .trackDuration {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.trackNumber {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.play {
+    width: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.play:hover {
+    transform: scale(1.2);
+}
+
+.trackName {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.artistName {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-right: 10px;
+}
+
+.trackOptions {
+    position: relative;
+}
+
+.optionButton {
+    width: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.optionButton:hover {
+    transform: scale(1.2);
+}
+
+.trackDuration {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+/* Dropdown Menu */
+.optionsMenu {
+    position: absolute;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    top: 50px;
+    left: 20px;
+    z-index: 100;
+}
+
+.optionsMenu input {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.optionsMenu input:hover {
+    background-color: #444;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.artistImageContainer {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.artistImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tracklistRow {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing between elements */
+}
