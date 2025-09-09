@@ -1,111 +1,10 @@
 <?php
-include("Includes/includedFiles.php");
-
-// Check if user is not logged in (not just guest) - show popup
-if (!isset($userLoggedIn) || $userLoggedIn == null) {
-    echo "<script>
-            if (confirm('You need to login to access this feature. Would you like to login now?')) {
-                window.location.href = 'login.php?direct=1';
-            } else {
-                history.back();
-            }
-        </script>";
-    exit();
-}
+    include("Includes/includedFiles.php");
 ?>
 
 <style>
     /* General Styles */
     .entityInfo {
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Mobile responsive styles */
-        @media screen and (max-width: 768px) {
-            .userDetails {
-                width: 95%;
-                padding: 20px;
-            }
-
-            .container {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-
-            h2 {
-                font-size: 16px;
-            }
-
-            input {
-                padding: 10px;
-                font-size: 14px;
-            }
-
-            .button {
-                padding: 10px;
-                font-size: 14px;
-            }
-
-            .table100 {
-                font-size: 13px;
-            }
-
-            .table100-body {
-                max-height: 400px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .userDetails {
-                width: 100%;
-                padding: 15px;
-            }
-
-            .entityInfo {
-                padding: 20px;
-            }
-
-            .userInfo h1 {
-                font-size: 24px;
-            }
-
-            .container {
-                padding: 12px;
-            }
-
-            h2 {
-                font-size: 14px;
-                margin-bottom: 8px;
-            }
-
-            input {
-                padding: 8px;
-                font-size: 13px;
-            }
-
-            .button {
-                padding: 8px;
-                font-size: 13px;
-            }
-
-            .table100 th,
-            .table100 td {
-                padding: 8px;
-                font-size: 12px;
-            }
-        }
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -174,8 +73,7 @@ if (!isset($userLoggedIn) || $userLoggedIn == null) {
         animation: fadeInUp 0.8s ease-in-out forwards;
     }
 
-    .table100 th,
-    .table100 td {
+    .table100 th, .table100 td {
         padding: 12px;
         text-align: center;
         color: white;
@@ -207,27 +105,13 @@ if (!isset($userLoggedIn) || $userLoggedIn == null) {
 
     /* Animations */
     @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 </style>
 
@@ -243,13 +127,13 @@ if (!isset($userLoggedIn) || $userLoggedIn == null) {
         <button class="button" onclick="logout()">LOGOUT</button>
     </div>
 
-    <?php
-    if ($userLoggedIn->isAdmin()) {
-        // USERS
-        $query = mysqli_query($con, "SELECT id,username,email,admin FROM users");
-        echo "<h2>Users</h2>";
-        echo "<div class='table100 ver3 m-b-110'>";
-        echo "<table>
+    <?php 
+        if($userLoggedIn->isAdmin()) {
+            // USERS
+            $query = mysqli_query($con, "SELECT id,username,email,admin FROM users");
+            echo "<h2>Users</h2>";
+            echo    "<div class='table100 ver3 m-b-110'>";
+            echo    "<table>
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -260,30 +144,30 @@ if (!isset($userLoggedIn) || $userLoggedIn == null) {
                             </tr>
                         </thead>
                         <tbody>";
-        while ($row = mysqli_fetch_array($query)) {
-            if ($row['username'] == $userLoggedIn->getUsername()) {
-                continue;
-            }
-            $isAdmin = $row['admin'] ? "Yes" : "No";
-            echo "<tr>
+            while($row = mysqli_fetch_array($query)) {
+                if ($row['username'] == $userLoggedIn->getUsername()) {
+                    continue;
+                }
+                $isAdmin = $row['admin'] ? "Yes" : "No";
+                echo    "<tr>
                             <td>" . $row['id'] . "</td>
                             <td>" . $row['username'] . "</td>
                             <td>" . $row['email'] . "</td>
                             <td>" . $isAdmin . "</td>
                             <td>
-                                <img src='assets/images/Icons/remove.png' class='removeIcon' onclick='deleteUser(\"" . $row['id'] . "\")'>
+                                <img src='assets/images/Icons/remove.png' class='removeIcon' onclick='deleteUser(\"".$row['id']."\")'>
                             </td>
                         </tr>";
-        }
-        echo "</tbody>
+            }
+            echo    "</tbody>
                     </table>";
-        echo "</div>";
+            echo "</div>";
 
-        // SONGS
-        $query = mysqli_query($con, "SELECT id,title,plays FROM songs");
-        echo "<h2>Songs</h2>";
-        echo "<div class='table100 ver3 m-b-110'>";
-        echo "<table>
+            // SONGS
+            $query = mysqli_query($con, "SELECT id,title,plays FROM songs");
+            echo "<h2>Songs</h2>";
+            echo    "<div class='table100 ver3 m-b-110'>";
+            echo    "<table>
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -293,28 +177,28 @@ if (!isset($userLoggedIn) || $userLoggedIn == null) {
                             </tr>
                         </thead>
                         <tbody>";
-        while ($row = mysqli_fetch_array($query)) {
-            echo "<tr>
+            while($row = mysqli_fetch_array($query)) {
+                echo    "<tr>
                             <td>" . $row['id'] . "</td>
                             <td>" . $row['title'] . "</td>
                             <td>" . $row['plays'] . "</td>
                             <td>
-                                <img src='assets/images/Icons/remove.png' class='removeIcon' onclick='deleteSong(\"" . $row['id'] . "\")'>
+                                <img src='assets/images/Icons/remove.png' class='removeIcon' onclick='deleteSong(\"".$row['id']."\")'>
                             </td>
                         </tr>";
-        }
-        echo "</tbody>
+            }
+            echo    "</tbody>
                     </table>";
-        echo "</div>";
-    }
+            echo "</div>";
+        }
     ?>
 </div>
 
 <script src="assets/js/perfect-scrollbar.min.js"></script>
 <script>
-    $('.js-pscroll').each(function () {
+    $('.js-pscroll').each(function(){
         var ps = new PerfectScrollbar(this);
-        $(window).on('resize', function () {
+        $(window).on('resize', function(){
             ps.update();
         })
     });

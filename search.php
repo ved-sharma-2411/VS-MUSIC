@@ -156,19 +156,6 @@ while ($row = mysqli_fetch_array($suggestionsQuery)) {
         color: #ffffff;
     }
 
-    /* Mobile responsive for search page */
-    @media screen and (max-width: 768px) {
-        .searchPageContainer {
-            padding: 1.5rem 1rem;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .searchPageContainer {
-            padding: 1rem 0.5rem;
-        }
-    }
-
     .searchHeader {
         margin-bottom: 2rem;
     }
@@ -242,42 +229,10 @@ while ($row = mysqli_fetch_array($suggestionsQuery)) {
         margin-bottom: 1rem;
     }
 
-    /* Mobile responsive for section headers */
-    @media screen and (max-width: 768px) {
-
-        .suggestionsSection h2,
-        .resultsSection h2 {
-            font-size: 1.3rem;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-
-        .suggestionsSection h2,
-        .resultsSection h2 {
-            font-size: 1.1rem;
-        }
-    }
-
     .browseGrid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 1rem;
-    }
-
-    /* Mobile responsive for browse grid */
-    @media screen and (max-width: 768px) {
-        .browseGrid {
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 0.8rem;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .browseGrid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 0.6rem;
-        }
     }
 
     .browseCard {
@@ -338,21 +293,6 @@ while ($row = mysqli_fetch_array($suggestionsQuery)) {
         gap: 1rem;
     }
 
-    /* Mobile responsive for suggestions grid */
-    @media screen and (max-width: 768px) {
-        .suggestionsGrid {
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 0.8rem;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .suggestionsGrid {
-            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-            gap: 0.6rem;
-        }
-    }
-
     .suggestionCard {
         background: rgba(255, 255, 255, 0.05);
         border-radius: 8px;
@@ -361,19 +301,6 @@ while ($row = mysqli_fetch_array($suggestionsQuery)) {
         transition: all 0.3s ease;
         border: 1px solid rgba(255, 255, 255, 0.1);
         position: relative;
-    }
-
-    /* Mobile responsive for suggestion cards */
-    @media screen and (max-width: 768px) {
-        .suggestionCard {
-            padding: 0.8rem;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .suggestionCard {
-            padding: 0.6rem;
-        }
     }
 
     .suggestionCard:hover {
@@ -453,30 +380,10 @@ while ($row = mysqli_fetch_array($suggestionsQuery)) {
         border-radius: 5px;
     }
 
-    /* Mobile responsive for song items */
-    @media screen and (max-width: 768px) {
-        .songItem {
-            padding: 12px 8px;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .songItem {
-            padding: 10px 5px;
-        }
-    }
-
     .songItem:hover {
         background: rgba(255, 255, 255, 0.1);
         transform: scale(1.02);
         box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
-    }
-
-    @media screen and (max-width: 768px) {
-        .songItem:hover {
-            transform: scale(1.01);
-        }
     }
 
     .songItem:last-child {
@@ -627,41 +534,9 @@ while ($row = mysqli_fetch_array($suggestionsQuery)) {
         .songAlbum {
             display: none;
         }
-
-        .searchBox {
-            height: 42px;
-        }
     }
 
     @media (max-width: 480px) {
-        .searchPageContainer {
-            padding: 0.5rem;
-        }
-
-        .searchHeader h1 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .searchBox {
-            height: 40px;
-            padding: 0 0.75rem;
-        }
-
-        .browseGrid {
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
-        }
-
-        .browseCard {
-            height: 80px;
-            padding: 0.75rem;
-        }
-
-        .browseCard h3 {
-            font-size: 0.875rem;
-        }
-
         .suggestionsGrid {
             grid-template-columns: 1fr;
         }
@@ -673,14 +548,6 @@ while ($row = mysqli_fetch_array($suggestionsQuery)) {
 
         .songIndex {
             display: none;
-        }
-
-        .songTitle {
-            font-size: 14px;
-        }
-
-        .songArtist {
-            font-size: 12px;
         }
     }
 
