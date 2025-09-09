@@ -1,5 +1,3 @@
-<button class="menu-toggle" onclick="toggleNavBar()">☰</button>
-
 <div id="navBarContainer">
     <nav class="navBar">
         <span onclick="openPage('aboutUs.php');" class="logo">
@@ -27,26 +25,12 @@
             </div>
 
             <div class="navItem">
-                <span class="navItemLink">
-                    <?php
-                    if ($isGuest) {
-                        echo '<span onclick="showLoginConfirm()" style="cursor: pointer;">Your Music</span>';
-                    } else {
-                        echo '<span onclick="openPage(\'yourMusic.php\')" style="cursor: pointer;">Your Music</span>';
-                    }
-                    ?>
-                </span>
+                <span onclick="openPage('yourMusic.php');" class="navItemLink">Your Music</span>
             </div>
 
             <div class="navItem">
-                <span class="navItemLink">
-                    <?php
-                    if ($isGuest) {
-                        echo '<span onclick="showLoginConfirm()" style="cursor: pointer; color: #1DB954;">Login/Register</span>';
-                    } else {
-                        echo '<span onclick="openPage(\'settings.php\')" style="cursor: pointer;">' . $userLoggedIn->getName() . '</span>';
-                    }
-                    ?>
+                <span onclick="openPage('settings.php');" class="navItemLink">
+                    <?php echo $userLoggedIn->getName(); ?>
                 </span>
             </div>
         </div>

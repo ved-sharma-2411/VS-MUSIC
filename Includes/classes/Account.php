@@ -19,7 +19,7 @@ class Account
 
 		if ($result->num_rows == 1) {
 			$row = $result->fetch_assoc();
-			if (md5($password) === $row['password']) {
+			if ($password == $row['password']) {
 				return true;
 			}
 		}
@@ -54,13 +54,11 @@ class Account
 
 	private function insertUserDetails($username, $firstName, $lastName, $email, $password)
 	{
-		// Encrypt password using MD5
-		$encryptedPassword = md5($password);
 		$profilePic = "assets/images/profile-pics/user.jpg";
 		$date = date("Y-m-d");
 
 		$query = $this->con->prepare("INSERT INTO users (username, firstName, lastName, email, password, signUpDate, profilePic) VALUES (?, ?, ?, ?, ?, ?, ?)");
-		$query->bind_param("sssssss", $username, $firstName, $lastName, $email, $encryptedPassword, $date, $profilePic);
+		$query->bind_param("sssssss", $username, $firstName, $lastName, $email, $password, $date, $profilePic);
 
 		return $query->execute();
 	}
