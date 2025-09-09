@@ -1,5 +1,5 @@
 <?php
-    include("Includes/includedFiles.php");
+include("Includes/includedFiles.php");
 ?>
 
 <style>
@@ -9,9 +9,11 @@
         max-width: 500px;
         margin: auto;
         padding: 30px;
-        background: rgba(20, 20, 20, 0.8);  /* Darker background */
+        background: rgba(20, 20, 20, 0.8);
+        /* Darker background */
         border-radius: 15px;
-        box-shadow: 0px 8px 32px rgba(0, 255, 0, 0.1); /* Subtle glow */
+        box-shadow: 0px 8px 32px rgba(0, 255, 0, 0.1);
+        /* Subtle glow */
         backdrop-filter: blur(10px);
         text-align: center;
         color: #ddd;
@@ -23,14 +25,17 @@
         margin-bottom: 20px;
         padding: 20px;
         border-radius: 10px;
-        background: rgba(30, 30, 30, 0.6); /* Darker background */
-        box-shadow: 0 5px 15px rgba(0, 255, 0, 0.1); /* Softer glow */
+        background: rgba(30, 30, 30, 0.6);
+        /* Darker background */
+        box-shadow: 0 5px 15px rgba(0, 255, 0, 0.1);
+        /* Softer glow */
         transition: 0.3s ease-in-out;
     }
 
     .container:hover {
         transform: scale(1.02);
-        box-shadow: 0 8px 20px rgba(0, 255, 0, 0.2); /* Slight glow effect */
+        box-shadow: 0 8px 20px rgba(0, 255, 0, 0.2);
+        /* Slight glow effect */
     }
 
     /* Headings */
@@ -50,7 +55,8 @@
         padding: 12px;
         font-size: 16px;
         color: white;
-        background: rgba(0, 0, 0, 0.5); /* Dark input background */
+        background: rgba(0, 0, 0, 0.5);
+        /* Dark input background */
         border: 1px solid rgba(0, 255, 0, 0.3);
         border-radius: 8px;
         outline: none;
@@ -97,17 +103,81 @@
 
     /* Animations */
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
+    /* Mobile responsive styles */
+    @media screen and (max-width: 768px) {
+        .userDetails {
+            width: 95%;
+            padding: 25px;
+        }
+
+        .container {
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .button {
+            padding: 10px;
+            font-size: 14px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .userDetails {
+            width: 100%;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 12px;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 13px;
+        }
+
+        .button {
+            padding: 8px;
+            font-size: 13px;
+        }
+
+        .message {
+            font-size: 12px;
+        }
+    }
 </style>
 
 <div class="userDetails">
     <div class="container">
         <h2>EMAIL</h2>
-        <input type="email" class="email" name="email" placeholder="Email address..." 
-               value="<?php echo $userLoggedIn->getEmail(); ?>">
+        <input type="email" class="email" name="email" placeholder="Email address..."
+            value="<?php echo $userLoggedIn->getEmail(); ?>">
         <span class="message"></span>
         <button class="button" onclick="updateEmail('email')">SAVE</button>
     </div>

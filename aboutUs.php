@@ -15,7 +15,7 @@ include("Includes/includedFiles.php");
             background: #121212;
             color: #fff;
             font-family: 'Poppins', sans-serif;
-            padding: 20px;
+            padding: 15px;
             overflow-x: hidden;
         }
 
@@ -38,6 +38,23 @@ include("Includes/includedFiles.php");
             overflow: hidden;
         }
 
+        /* Mobile responsive */
+        @media screen and (max-width: 768px) {
+            .container {
+                margin: 0px;
+                padding: 0px;
+                max-width: calc(100% - 20px);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                margin: 5px;
+                padding: 0px;
+                max-width: calc(100% - 10px);
+            }
+        }
+
         /* 🎵 Title with Neon Glow */
         h1 {
             font-size: 36px;
@@ -46,6 +63,21 @@ include("Includes/includedFiles.php");
             letter-spacing: 2px;
             text-shadow: 0px 0px 10px #1db954;
             animation: neonGlow 1.5s infinite alternate;
+        }
+
+        /* Mobile responsive for title */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+                letter-spacing: 1px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+                letter-spacing: 0.5px;
+            }
         }
 
         /* ⏳ Timeline Animation */
@@ -163,6 +195,71 @@ include("Includes/includedFiles.php");
         .contact a:hover {
             color: #0f0;
             text-shadow: 0px 0px 10px #0f0;
+        }
+
+        /* Mobile responsive styles */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 0px;
+            }
+
+            .container {
+                padding: 0px;
+                margin: 0px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .event {
+                width: calc(100% - 20px);
+                margin-left: 20px;
+                text-align: left;
+            }
+
+            .left,
+            .right {
+                left: 0;
+                text-align: left;
+            }
+
+            .btn {
+                margin-bottom: 50px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            .container {
+                padding: 15px;
+                margin: 5px;
+            }
+
+            .event {
+                font-size: 16px;
+                padding: 10px;
+                width: calc(100% - 50px);
+                margin-left: 20px;
+            }
+
+            .timeline::before {
+                left: 25px;
+                width: 3px;
+            }
+
+            .contact a {
+                font-size: 16px;
+            }
         }
     </style>
 </head>

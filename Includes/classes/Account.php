@@ -19,7 +19,7 @@ class Account
 
 		if ($result->num_rows == 1) {
 			$row = $result->fetch_assoc();
-			if (password_verify($password, $row['password'])) {
+			if (md5($password) === $row['password']) {
 				return true;
 			}
 		}
@@ -54,8 +54,8 @@ class Account
 
 	private function insertUserDetails($username, $firstName, $lastName, $email, $password)
 	{
-		// Encrypt password using password_hash
-		$encryptedPassword = password_hash($password, PASSWORD_BCRYPT);
+		// Encrypt password using MD5
+		$encryptedPassword = md5($password);
 		$profilePic = "assets/images/profile-pics/user.jpg";
 		$date = date("Y-m-d");
 

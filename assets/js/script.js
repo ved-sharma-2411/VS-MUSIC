@@ -1,4 +1,15 @@
 /******************** GLOBAL VARIABLES START *****************************/
+function showLoginPopup() {
+    alert('Please login to access this feature. You can create playlists and save your music history after logging in.');
+    openPage('login.php?direct=1');
+}
+
+function showLoginConfirm() {
+    if (confirm('You need to login to access this feature. Would you like to login now?')) {
+        window.location.href = 'login.php?direct=1';
+    }
+}
+
 var currentPlaylist = [];
 var shuffledPlaylist = [];
 // Temp playlist for the album which the user is on
@@ -12,8 +23,28 @@ var repeat = false;
 var shuffle = false;
 
 var userLoggedIn;
+var isGuest = false;
 // Timer used in search
 var timer;
+
+// Mobile navigation toggle function
+function toggleNavBar() {
+    $('#navBarContainer').toggleClass('active');
+}
+
+// Auto-hide navigation when selecting options on mobile
+function hideNavOnMobile() {
+    if ($(window).width() <= 768) {
+        $('#navBarContainer').removeClass('active');
+    }
+}
+
+// Close navigation when clicking outside on mobile
+$(document).click(function(event) {
+    if (!$(event.target).closest('#navBarContainer, .menu-toggle').length) {
+        $('#navBarContainer').removeClass('active');
+    }
+});
 /******************** GLOBAL VARIABLES END *****************************/
 
 // Hides optionsMenu on scroll event
@@ -79,6 +110,9 @@ function updatePassword(oldPasswordClass, newPasswordClass1, newPasswordClass2) 
 
 // DYNAMIC LOADING FUNCTION
 function openPage(url) {
+    // Hide navigation on mobile when opening a page
+    hideNavOnMobile();
+    
     // If timer is set and navigating to another page, clear the timer
     if(timer != null) {
         clearTimeout(timer);

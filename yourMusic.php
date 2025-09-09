@@ -1,5 +1,17 @@
 <?php
-    include("Includes/includedFiles.php");
+include("Includes/includedFiles.php");
+
+// Check if user is not logged in (not just guest) - show popup
+if (!isset($userLoggedIn) || $userLoggedIn == null) {
+    echo "<script>
+            if (confirm('You need to login to access this feature. Would you like to login now?')) {
+                window.location.href = 'login.php?direct=1';
+            } else {
+                history.back();
+            }
+        </script>";
+    exit();
+}
 ?>
 
 <style>
@@ -115,13 +127,82 @@
 
     /* Keyframe Animations */
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Mobile responsive styles */
+    @media screen and (max-width: 768px) {
+        .gridViewContainer {
+            width: 95%;
+            padding: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .gridViewContainer h2 {
+            font-size: 22px;
+        }
+
+        .playlistImage img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .gridViewInfo {
+            font-size: 14px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .gridViewContainer {
+            width: 100%;
+            padding: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .gridViewContainer h2 {
+            font-size: 20px;
+        }
+
+        .gridViewItem {
+            padding: 15px;
+        }
+
+        .playlistImage img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .gridViewInfo {
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .button.green {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
     }
 </style>
 
@@ -132,26 +213,26 @@
             <button class="button green" onclick="createPlaylist('asdsadsad');">CREATE PLAYLIST</button>
         </div>
 
-        <?php 
-            $username = $userLoggedIn->getUsername();
-            $playlistsQuery = mysqli_query($con, "SELECT * FROM playlists WHERE owner='$username'");
+        <?php
+        $username = $userLoggedIn->getUsername();
+        $playlistsQuery = mysqli_query($con, "SELECT * FROM playlists WHERE owner='$username'");
 
-            if(mysqli_num_rows($playlistsQuery) == 0) {
-                echo "<p class='noResults'>You do not have any playlists.</p>";
-            }
+        if (mysqli_num_rows($playlistsQuery) == 0) {
+            echo "<p class='noResults'>You do not have any playlists.</p>";
+        }
 
-            while ($row = mysqli_fetch_array($playlistsQuery)) {
-                $playlist = new Playlist($con, $row);
+        while ($row = mysqli_fetch_array($playlistsQuery)) {
+            $playlist = new Playlist($con, $row);
 
-                echo    "<div class='gridViewItem pointer' onclick='openPage(\"playlist.php?id=" . $playlist->getId() . "\")'>
+            echo "<div class='gridViewItem pointer' onclick='openPage(\"playlist.php?id=" . $playlist->getId() . "\")'>
                             <div class='playlistImage'>
                                 <img src='assets/images/Icons/playlist2.png'>
                             </div>
                             <div class='gridViewInfo'>"
-                                . $playlist->getName() . 
-                            "</div>
+                . $playlist->getName() .
+                "</div>
                         </div>";
-            }
+        }
         ?>
     </div>
 </div>

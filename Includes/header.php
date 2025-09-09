@@ -9,10 +9,15 @@ include("Includes/classes/Playlist.php");
 // LOGOUT
 // session_destroy();
 
+$isGuest = false;
 if (isset($_SESSION['userLoggedIn'])) {
     $userLoggedIn = new User($con, $_SESSION['userLoggedIn']);
     $username = $userLoggedIn->getUsername();
     echo "<script>userLoggedIn = '$username';</script>";
+} else if (isset($_SESSION['isGuest']) && $_SESSION['isGuest'] === true) {
+    $isGuest = true;
+    $userLoggedIn = null;
+    echo "<script>userLoggedIn = null; isGuest = true;</script>";
 } else {
     header("Location: login.php");
 }

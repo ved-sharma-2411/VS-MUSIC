@@ -257,7 +257,7 @@ CREATE TABLE `users` (
   `firstName` varchar(50) NOT NULL,
   `lastName` varchar(50) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `password` varchar(32) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `signUpDate` datetime NOT NULL,
   `profilePic` varchar(500) NOT NULL,
   `admin` tinyint(1) DEFAULT 0,
@@ -269,7 +269,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `firstName`, `lastName`, `email`, `password`, `signUpDate`, `profilePic`, `admin`, `status`) VALUES
-(23, 'vedant24y4', 'Ved', 'Sharma', 'Vedantsharma24y4@gmail.com', 'e7993bef2b6592c56c0c3c279e63a008', '2025-03-27 00:00:00', 'assets/images/profile-pics/user.jpg', 0, 'active');
+(23, 'vedant24y4', 'Ved', 'Sharma', 'Vedantsharma24y4@gmail.com', 'vedant123@', '2025-03-27 00:00:00', 'assets/images/profile-pics/user.jpg', 0, 'active');
 
 --
 -- Indexes for dumped tables

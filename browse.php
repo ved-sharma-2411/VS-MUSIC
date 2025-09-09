@@ -1,16 +1,16 @@
-<?php 
-    include("Includes/includedFiles.php");
+<?php
+include("Includes/includedFiles.php");
 
-    // Fetch albums from the database
-    $albumQuery = mysqli_query($con, "SELECT * FROM albums");
-    $albums = [];
+// Fetch albums from the database
+$albumQuery = mysqli_query($con, "SELECT * FROM albums");
+$albums = [];
 
-    while ($row = mysqli_fetch_assoc($albumQuery)) {
-        $albums[] = $row;
-    }
+while ($row = mysqli_fetch_assoc($albumQuery)) {
+    $albums[] = $row;
+}
 
-    // Array of unique music-related symbols
-    $symbols = ["🎼", "🎶", "🎧", "🎤", "🎙️", "🎚️", "🎛️", "📀", "💿", "🔊", "🎸", "🎻", "🎷", "🎺", "🥁", "🎹"];
+// Array of unique music-related symbols
+$symbols = ["🎼", "🎶", "🎧", "🎤", "🎙️", "🎚️", "🎛️", "📀", "💿", "🔊", "🎸", "🎻", "🎷", "🎺", "🥁", "🎹"];
 ?>
 
 <h1 class="pageHeadingBig">🔥 Top Albums 2025 🔥</h1>
@@ -26,6 +26,24 @@
         margin: auto;
     }
 
+    /* Mobile responsive for browse page */
+    @media screen and (max-width: 768px) {
+        .gridViewContainer {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            padding: 15px;
+            max-width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .gridViewContainer {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+    }
+
     .gridViewItem {
         position: relative;
         cursor: pointer;
@@ -38,6 +56,12 @@
     .gridViewItem:hover {
         transform: translateY(-5px) scale(1.05);
         box-shadow: 0 8px 20px rgba(255, 75, 43, 0.3);
+    }
+
+    @media screen and (max-width: 768px) {
+        .gridViewItem:hover {
+            transform: translateY(-2px) scale(1.02);
+        }
     }
 
     .gridViewItem img {
@@ -77,23 +101,42 @@
         .gridViewContainer {
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 10px;
+            padding: 15px;
         }
+
         .gridViewInfo {
             font-size: 12px;
             padding: 8px;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .pageHeadingBig {
+            font-size: 20px;
+            padding: 15px;
         }
     }
 
     @media (max-width: 480px) {
         .gridViewContainer {
             grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            padding: 10px;
         }
+
         .gridViewItem {
             border-radius: 8px;
         }
+
         .gridViewInfo {
             font-size: 11px;
             padding: 6px;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .pageHeadingBig {
+            font-size: 18px;
+            padding: 10px;
         }
     }
 </style>
@@ -107,7 +150,8 @@
         <?php $randomSymbol = $symbols[array_rand($symbols)]; ?>
         <div class='gridViewItem' onclick='openPage("album.php?id=<?= $album["id"] ?>");'>
             <img src='<?= $album["artworkPath"] ?>' alt='<?= htmlspecialchars($album["title"], ENT_QUOTES, "UTF-8") ?>'>
-            <div class='gridViewInfo'><?= $randomSymbol . " " . htmlspecialchars($album["title"], ENT_QUOTES, "UTF-8") ?></div>
+            <div class='gridViewInfo'><?= $randomSymbol . " " . htmlspecialchars($album["title"], ENT_QUOTES, "UTF-8") ?>
+            </div>
         </div>
     <?php endforeach; ?>
 </div>
