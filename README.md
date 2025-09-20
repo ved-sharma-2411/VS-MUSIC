@@ -149,3 +149,4 @@ For any inquiries, please contact:
 
 - **Email**: vedsh24y4@gmail.com
 - **GitHub**: [ved-sharma-24y4](https://github.com/ved-sharma-24y4)
+- **linkedIn**: [ved-sharma-24y4](www.linkedin.com/in/ved-sharma-24y4)
