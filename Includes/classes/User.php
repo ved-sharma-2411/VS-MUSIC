@@ -1,39 +1,44 @@
 <?php
-	class User 
-	{
-        private $con;
-        private $username;
+class User
+{
+    private $con;
+    private $username;
 
-		public	function __construct($con, $username) {
-			$this->con = $con;
-			$this->username = $username;
-        }
-        
-        public function getUsername() {
-            return $this->username;
-        }
+    public function __construct($con, $username)
+    {
+        $this->con = $con;
+        $this->username = $username;
+    }
 
-        public function getName() {
-            $query = mysqli_query($this->con, "SELECT concat(firstName, ' ', lastName) AS name FROM users WHERE username='$this->username'");
-            $row = mysqli_fetch_array($query);
+    public function getUsername()
+    {
+        return $this->username;
+    }
 
-            return $row['name'];
-        }
+    public function getName()
+    {
+        $query = mysqli_query($this->con, "SELECT concat(firstName, ' ', lastName) AS name FROM users WHERE username='$this->username'");
+        $row = mysqli_fetch_array($query);
 
-        public function getEmail() {
-            $query = mysqli_query($this->con, "SELECT email FROM users WHERE username='$this->username'");
-            $row = mysqli_fetch_array($query);
+        return $row ? $row['name'] : '';
+    }
 
-            return $row['email'];
-        }
+    public function getEmail()
+    {
+        $query = mysqli_query($this->con, "SELECT email FROM users WHERE username='$this->username'");
+        $row = mysqli_fetch_array($query);
 
-        public function isAdmin() {
-            $query = mysqli_query($this->con, "SELECT admin from users WHERE username='$this->username'");
-            $row = mysqli_fetch_array($query);
-            
-            return $row['admin'];
-        }
+        return $row ? $row['email'] : '';
+    }
 
-	}
+    public function isAdmin()
+    {
+        $query = mysqli_query($this->con, "SELECT admin from users WHERE username='$this->username'");
+        $row = mysqli_fetch_array($query);
+
+        return $row ? $row['admin'] : 0;
+    }
+
+}
 
 ?>

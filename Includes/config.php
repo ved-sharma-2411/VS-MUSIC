@@ -6,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $timezone = date_default_timezone_set("Asia/Kolkata");
 
-$con = mysqli_connect("localhost", "root", "", "VG_MUSIC");
+$con = mysqli_connect("localhost", "root", "", "VS_MUSIC");
 
 // Check if database connection is successful
 if (mysqli_connect_errno()) {
