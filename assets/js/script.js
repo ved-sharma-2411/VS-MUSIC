@@ -246,6 +246,9 @@ function Audio() {
     this.setTrack = function(track) {
         this.currentlyPlaying = track;
         this.audio.src = track.path;
+        
+        // Show waiting popup when loading starts
+        showWaitingPopup();
     }
 
     this.play = function() {
@@ -264,6 +267,8 @@ function Audio() {
     this.audio.addEventListener('canplay', function() {
         var duration = formatTime(this.duration);
         $('.progressTime.remaining').text(duration);
+        // Hide waiting popup when audio is ready
+        hideWaitingPopup();
     });
 
     // Event listener for remaining time
@@ -281,5 +286,15 @@ function Audio() {
     // Event listener for song end
     this.audio.addEventListener('ended', function() {
         nextSong();
+    });
+
+    // Event listener for when audio starts playing
+    this.audio.addEventListener('playing', function() {
+        hideWaitingPopup();
+    });
+
+    // Event listener for load start
+    this.audio.addEventListener('loadstart', function() {
+        showWaitingPopup();
     });
 }
