@@ -33,6 +33,7 @@ if (isset($_SESSION['userLoggedIn'])) {
 </head>
 
 <body>
+    <?php include("waiting-popup.php"); ?>
     <div id="mainContainer">
         <div id="topContainer">
             <?php include("Includes/navBarContainer.php"); ?>
